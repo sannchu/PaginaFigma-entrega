@@ -1,0 +1,27 @@
+/* Mi Lista y Perfil. */
+.library-main { width: 100%; }
+.library-heading h1 { margin: 0; font-size: 2rem; font-weight: 700; }
+.library-tabs { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-bottom: 1.5rem; padding-bottom: .75rem; border-bottom: 1px solid var(--borde); color: var(--secundario); }
+.library-tabs .is-active { color: var(--texto); font-weight: 700; }
+.library-sidebar, .profile-card, .profile-settings-card { padding: 1.25rem; border: 1px solid var(--borde); border-radius: .75rem; background: var(--superficie); }
+.library-sidebar h2 { font-size: 1rem; font-weight: 700; }
+.library-category-list > div { padding: .5rem; border-radius: .4rem; color: var(--secundario); }
+.library-category-list > .is-active { background: var(--marca); color: white; }
+.library-sidebar-divider, .profile-divider { border-top: 1px solid var(--borde); margin: 1rem 0; }
+.library-results-heading { margin-bottom: 1rem; }
+.library-mobile-controls, .library-count-mobile, .profile-email-mobile, .profile-stats-mobile, .profile-settings-title-mobile, .profile-mobile-logout, .profile-avatar-mobile-icon { display: none; }
+.profile-layout { width: min(100%, 1140px); margin: 2.5rem auto; padding: 0 1rem; display: grid; grid-template-columns: minmax(230px, 1fr) 2fr; gap: 1.5rem; }
+.profile-identity { display: flex; align-items: center; gap: 1rem; }
+.profile-identity h1 { font-size: 1.35rem; font-weight: 700; }
+.profile-email { color: var(--secundario); }
+.profile-avatar { display: grid; place-items: center; width: 4rem; height: 4rem; flex: 0 0 4rem; border-radius: 50%; background: var(--marca); }
+.profile-stats { display: flex; justify-content: space-between; gap: .5rem; margin: 1.25rem 0; text-align: center; }
+.profile-stats dt { font-size: 1.2rem; }
+.profile-stats dd { margin: 0; color: var(--secundario); font-size: .8rem; }
+.profile-actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.profile-section-title { margin-bottom: 1rem; font-size: 1.5rem; font-weight: 700; }
+.profile-setting-row { display: flex; align-items: center; gap: 1rem; padding: 1rem 0; border-bottom: 1px solid var(--borde); }
+.profile-setting-row:last-child { border: 0; }
+.profile-setting-icon { color: var(--marca); }
+.profile-setting-copy { flex: 1; }
+.profile-setting-chevron { border: 0; }

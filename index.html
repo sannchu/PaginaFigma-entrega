@@ -1,0 +1,299 @@
+<!doctype html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Descubre películas recomendadas y novedades en MovieApp.">
+    <meta name="theme-color" content="#f4f5f7">
+    <title>MovieApp | Explorador</title>
+    <link rel="stylesheet" href="./css/custom.css">
+</head>
+<body>
+    <div class="movieapp-shell">
+        <header class="site-header bg-body-tertiary">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand brand" href="index.html" aria-label="MovieApp, inicio">
+                        <span class="brand-mark" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 7.5h16v12H4zM4 7.5l2-4h4l-2 4m2 0 2-4h4l-2 4m2 0 2-4h4l-2 4" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                        <span>MOVIEAPP</span>
+                    </a>
+
+                    <div class="header-quick-actions d-flex align-items-center gap-2">
+                        <details class="header-search">
+                            <summary aria-label="Abrir o cerrar búsqueda"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m15.5 15.5 5 5"></path></svg></summary>
+                            <form class="header-search-panel" action="index.html" method="get" role="search">
+                                <input name="buscar" type="search" aria-label="Buscar películas" placeholder="Buscar películas..." autocomplete="off">
+                                <button class="btn btn-danger" type="submit">Buscar</button>
+                            </form>
+                        </details>
+                        <button class="btn btn-outline-secondary theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar al modo claro" aria-pressed="true">Modo claro</button>
+                        <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#loginModal" aria-label="Iniciar sesión"><span class="login-label">Iniciar sesión</span><svg class="login-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 21a7 7 0 0 1 14 0"/></svg></button>
+                    </div>
+
+                    <button class="navbar-toggler menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Abrir menú">
+                        <span class="menu-icon" aria-hidden="true"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="mainNavigation">
+                        <ul class="navbar-nav main-navigation ms-lg-auto">
+                            <li class="nav-item"><a class="nav-link active" href="index.html" aria-current="page">Explorador</a></li>
+                            <li class="nav-item"><a class="nav-link" href="mi-lista.html">Mi lista</a></li>
+                            <li class="nav-item"><span class="nav-link disabled" aria-disabled="true">Foro</span></li>
+                            <li class="nav-item"><span class="nav-link disabled" aria-disabled="true">Comunidad</span></li>
+                            <li class="nav-item"><a class="nav-link" href="perfil.html">Perfil</a></li>
+                        </ul>
+
+
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <section class="featured-hero py-5 bg-body-tertiary" aria-labelledby="featured-title">
+                <div class="container">
+                    <div class="featured-copy py-4">
+                        <div class="featured-tags">
+                            <span class="featured-tag">Destacada</span>
+                            <span class="featured-tag featured-meta-tag">2006 · Aventura · Animación</span>
+                        </div>
+                        <h1 id="featured-title">Cars</h1>
+                        <p class="featured-description">Una historia de velocidad, amistad y nuevos caminos.</p>
+                        <div class="featured-details">
+                            <span class="featured-rating" role="img" aria-label="Valoración 4,8 de 5">★ 4,8</span>
+                            <span aria-hidden="true">·</span>
+                            <span>117 min</span>
+                        </div>
+                        <div class="featured-actions">
+                            <button class="btn btn-danger" type="button" aria-disabled="true">Ver detalles</button>
+                            <button class="btn btn-outline-light" type="button" data-featured-save>+ Mi lista</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="container explorer-search-section my-4">
+                <div class="explorer-search">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.8"></circle><path d="m16 16 4.5 4.5"></path></svg>
+                    <input type="search" aria-label="Buscar películas, campo visual sin búsqueda" placeholder="Buscar por título, director, actor o género..." autocomplete="off">
+                    <button class="explorer-search-button" type="button" aria-disabled="true" title="Búsqueda visual">Buscar</button>
+                </div>
+            </div>
+
+            <div class="container filter-section my-3">
+                <button class="filter-toggle" type="button" aria-expanded="false" aria-controls="filter-options">Filtros <span aria-hidden="true">▾</span></button>
+                <div id="filter-options" class="filter-options is-collapsed" role="group" aria-label="Filtros de selección visual">
+                <span class="filter-caption">Filtrar:</span>
+                <select class="filter-pill" aria-label="Género">
+                    <option value="">Género</option>
+                    <option value="accion">Acción</option>
+                    <option value="animacion">Animación</option>
+                    <option value="aventura">Aventura</option>
+                    <option value="ciencia-ficcion">Ciencia ficción</option>
+                    <option value="comedia">Comedia</option>
+                    <option value="drama">Drama</option>
+                </select>
+                <select class="filter-pill" aria-label="Año">
+                    <option value="">Año</option>
+                    <option>2026</option>
+                    <option>2025</option>
+                    <option>2024</option>
+                    <option>2023</option>
+                    <option>2022</option>
+                    <option>2021</option>
+                </select>
+                <select class="filter-pill" aria-label="Puntuación">
+                    <option value="">Puntuación</option>
+                    <option value="4">4 estrellas o más</option>
+                    <option value="3">3 estrellas o más</option>
+                    <option value="2">2 estrellas o más</option>
+                    <option value="1">1 estrella o más</option>
+                </select>
+                </div>
+            </div>
+
+            <div class="main-content container">
+                <section id="recomendadas" class="movie-section container my-5" aria-labelledby="recommended-title">
+                    <div class="section-heading">
+                        <h2 id="recommended-title">Recomendadas para ti</h2>
+                        <div class="section-actions">
+                            <button class="carousel-arrow" type="button" data-carousel-prev aria-label="Películas recomendadas anteriores" aria-controls="recommended-row"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button>
+                            <button class="carousel-arrow" type="button" data-carousel-next aria-label="Más películas recomendadas" aria-controls="recommended-row"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button>
+                            <a href="#nuevas">Ver todas <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 row-cols-md-3 g-4 movie-grid" id="recommended-row" role="region" aria-label="Películas recomendadas" tabindex="0">
+                        <div class="col">
+                            <article class="movie-card card h-100">
+                                <img class="movie-poster" src="imagenes/spider-man-no-way-home.jpg" alt="Cartel de Spider-Man: No Way Home" loading="lazy">
+                                <div class="movie-card-copy card-body">
+                                    <h3>Spider-Man: No Way Home</h3>
+                                    <p><span class="movie-rating" role="img" aria-label="Valoración 4,8 de 5">★ 4,8</span><span aria-hidden="true"> · </span>Acción</p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col">
+                            <article class="movie-card card h-100">
+                                <img class="movie-poster" src="imagenes/dune-parte-dos.jpg" alt="Cartel de Dune: Parte dos" loading="lazy">
+                                <div class="movie-card-copy card-body">
+                                    <h3>Dune: Parte dos</h3>
+                                    <p><span class="movie-rating" role="img" aria-label="Valoración 4,8 de 5">★ 4,8</span><span aria-hidden="true"> · </span>Ciencia ficción</p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col">
+                            <article class="movie-card card h-100">
+                                <img class="movie-poster" src="imagenes/del-reves-2.jpg" alt="Cartel de Del revés 2" loading="lazy">
+                                <div class="movie-card-copy card-body">
+                                    <h3>Del revés 2</h3>
+                                    <p><span class="movie-rating" role="img" aria-label="Valoración 4,8 de 5">★ 4,8</span><span aria-hidden="true"> · </span>Animación</p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col">
+                            <article class="movie-card card h-100">
+                                <img class="movie-poster" src="imagenes/barbie.jpg" alt="Cartel de Barbie" loading="lazy">
+                                <div class="movie-card-copy card-body"><h3>Barbie</h3><p><span class="movie-rating" role="img" aria-label="Valoración 4,6 de 5">★ 4,6</span><span aria-hidden="true"> · </span>Aventura</p></div>
+                            </article>
+                        </div>
+                        <div class="col">
+                            <article class="movie-card card h-100">
+                                <img class="movie-poster" src="imagenes/oppenheimer.jpg" alt="Cartel de Oppenheimer" loading="lazy">
+                                <div class="movie-card-copy card-body"><h3>Oppenheimer</h3><p><span class="movie-rating" role="img" aria-label="Valoración 4,8 de 5">★ 4,8</span><span aria-hidden="true"> · </span>Drama</p></div>
+                            </article>
+                        </div>
+                        <div class="col">
+                            <article class="movie-card card h-100">
+                                <img class="movie-poster" src="imagenes/the-batman.jpg" alt="Cartel de The Batman" loading="lazy">
+                                <div class="movie-card-copy card-body"><h3>The Batman</h3><p><span class="movie-rating" role="img" aria-label="Valoración 4,5 de 5">★ 4,5</span><span aria-hidden="true"> · </span>Acción</p></div>
+                            </article>
+                        </div>
+                        <div class="col"><article class="movie-card card h-100"><img class="movie-poster" src="imagenes/kung-fu-panda-4.jpg" alt="Cartel de Kung Fu Panda 4" loading="lazy"><div class="movie-card-copy card-body"><h3>Kung Fu Panda 4</h3><p><span class="movie-rating" role="img" aria-label="Valoración 4,3 de 5">★ 4,3</span><span aria-hidden="true"> · </span>Animación</p></div></article></div>
+                        <div class="col"><article class="movie-card card h-100"><img class="movie-poster" src="imagenes/godzilla-y-kong-el-nuevo-imperio.jpg" alt="Cartel de Godzilla y Kong: El nuevo imperio" loading="lazy"><div class="movie-card-copy card-body"><h3>Godzilla y Kong: El nuevo imperio</h3><p><span class="movie-rating" role="img" aria-label="Valoración 4,2 de 5">★ 4,2</span><span aria-hidden="true"> · </span>Ciencia ficción</p></div></article></div>
+                    </div>
+                </section>
+
+                <section id="nuevas" class="movie-section container my-5" aria-labelledby="new-title">
+                    <div class="section-heading">
+                        <h2 id="new-title">Nuevas películas</h2>
+                        <div class="section-actions">
+                            <button class="carousel-arrow" type="button" data-carousel-prev aria-label="Películas nuevas anteriores" aria-controls="new-row"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"></path></svg></button>
+                            <button class="carousel-arrow" type="button" data-carousel-next aria-label="Más películas nuevas" aria-controls="new-row"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"></path></svg></button>
+                            <a href="#recomendadas">Ver todas <span aria-hidden="true">→</span></a>
+                        </div>
+                    </div>
+                    <div class="row row-cols-2 row-cols-md-3 g-4 movie-grid" id="new-row" role="region" aria-label="Nuevas películas" tabindex="0">
+                        <div class="col">
+                            <article class="movie-card card h-100">
+                                <img class="movie-poster" src="imagenes/barbie.jpg" alt="Cartel de Barbie" loading="lazy">
+                                <div class="movie-card-copy card-body">
+                                    <h3>Barbie</h3>
+                                    <p><span class="movie-rating" role="img" aria-label="Valoración 4,6 de 5">★ 4,6</span><span aria-hidden="true"> · </span>Aventura</p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col">
+                            <article class="movie-card card h-100">
+                                <img class="movie-poster" src="imagenes/oppenheimer.jpg" alt="Cartel de Oppenheimer" loading="lazy">
+                                <div class="movie-card-copy card-body">
+                                    <h3>Oppenheimer</h3>
+                                    <p><span class="movie-rating" role="img" aria-label="Valoración 4,8 de 5">★ 4,8</span><span aria-hidden="true"> · </span>Drama</p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col">
+                            <article class="movie-card card h-100">
+                                <img class="movie-poster" src="imagenes/godzilla-y-kong-el-nuevo-imperio.jpg" alt="Cartel de Godzilla y Kong: El nuevo imperio" loading="lazy">
+                                <div class="movie-card-copy card-body">
+                                    <h3>Godzilla y Kong: El nuevo imperio</h3>
+                                    <p><span class="movie-rating" role="img" aria-label="Valoración 4,2 de 5">★ 4,2</span><span aria-hidden="true"> · </span>Ciencia ficción</p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="col">
+                            <article class="movie-card card h-100">
+                                <img class="movie-poster" src="imagenes/kung-fu-panda-4.jpg" alt="Cartel de Kung Fu Panda 4" loading="lazy">
+                                <div class="movie-card-copy card-body"><h3>Kung Fu Panda 4</h3><p><span class="movie-rating" role="img" aria-label="Valoración 4,3 de 5">★ 4,3</span><span aria-hidden="true"> · </span>Animación</p></div>
+                            </article>
+                        </div>
+                        <div class="col">
+                            <article class="movie-card card h-100">
+                                <img class="movie-poster" src="imagenes/el-especialista.jpg" alt="Cartel de El especialista" loading="lazy">
+                                <div class="movie-card-copy card-body"><h3>El especialista</h3><p><span class="movie-rating" role="img" aria-label="Valoración 4,1 de 5">★ 4,1</span><span aria-hidden="true"> · </span>Acción</p></div>
+                            </article>
+                        </div>
+                        <div class="col">
+                            <article class="movie-card card h-100">
+                                <img class="movie-poster" src="imagenes/dune-parte-dos.jpg" alt="Cartel de Dune: Parte dos" loading="lazy">
+                                <div class="movie-card-copy card-body"><h3>Dune: Parte dos</h3><p><span class="movie-rating" role="img" aria-label="Valoración 4,8 de 5">★ 4,8</span><span aria-hidden="true"> · </span>Ciencia ficción</p></div>
+                            </article>
+                        </div>
+                        <div class="col"><article class="movie-card card h-100"><img class="movie-poster" src="imagenes/the-batman.jpg" alt="Cartel de The Batman" loading="lazy"><div class="movie-card-copy card-body"><h3>The Batman</h3><p><span class="movie-rating" role="img" aria-label="Valoración 4,5 de 5">★ 4,5</span><span aria-hidden="true"> · </span>Acción</p></div></article></div>
+                        <div class="col"><article class="movie-card card h-100"><img class="movie-poster" src="imagenes/spider-man-no-way-home.jpg" alt="Cartel de Spider-Man: No Way Home" loading="lazy"><div class="movie-card-copy card-body"><h3>Spider-Man: No Way Home</h3><p><span class="movie-rating" role="img" aria-label="Valoración 4,8 de 5">★ 4,8</span><span aria-hidden="true"> · </span>Acción</p></div></article></div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer class="site-footer bg-body-tertiary mt-5 py-4" id="comunidad">
+            <div class="container footer-content d-flex flex-wrap justify-content-between gap-3">
+                <div class="footer-copy">
+                    <a class="footer-brand" href="index.html">MOVIEAPP</a>
+                    <p>Tu plataforma de exploración y organización de películas.</p>
+                </div>
+                <div class="footer-links d-flex flex-wrap gap-3">
+                    <nav id="foro" aria-label="Navegar"><strong>Navegar</strong><a href="index.html">Explorador</a><a href="mi-lista.html">Mi lista</a><a href="#foro">Foro</a><a href="#comunidad">Comunidad</a></nav>
+                    <nav aria-label="Cuenta"><strong>Cuenta</strong><a href="perfil.html">Perfil</a><a href="perfil.html#profile-settings-title">Configuración</a><a href="#comunidad">Ayuda</a></nav>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form id="login-form" class="needs-validation" novalidate>
+                    <div class="modal-header">
+                        <div>
+                            <h2 class="modal-title fs-5" id="loginModalLabel">Iniciar sesión</h2>
+                            <p class="modal-subtitle">Accede a tu cuenta de MovieApp.</p>
+                        </div>
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label" for="login-email">Correo electrónico</label>
+                            <input class="form-control" id="login-email" name="email" type="email" autocomplete="username" required>
+                            <div class="invalid-feedback">Introduce un correo electrónico válido.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="login-password">Contraseña</label>
+                            <input class="form-control" id="login-password" name="password" type="password" autocomplete="current-password" minlength="8" required>
+                            <div class="invalid-feedback">La contraseña debe tener al menos 8 caracteres.</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline-secondary" type="button" data-bs-dismiss="modal">Cancelar</button>
+                        <button class="btn btn-danger" type="submit">Continuar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="movie-actions-menu" id="movie-actions-menu" role="menu" aria-label="Opciones de la película" hidden>
+        <button type="button" role="menuitem" aria-disabled="true">Añadir a mi lista</button>
+        <button type="button" role="menuitem" aria-disabled="true">Ver información</button>
+        <button type="button" role="menuitem" aria-disabled="true">Compartir</button>
+    </div>
+
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/movies.js"></script>
+</body>
+</html>

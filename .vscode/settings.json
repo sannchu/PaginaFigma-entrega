@@ -1,0 +1,7 @@
+{
+  "liveSassCompile.settings.includeItems": ["/scss/custom.scss"],
+  "liveSassCompile.settings.formats": [
+    { "format": "expanded", "extensionName": ".css", "savePath": "/css" }
+  ],
+  "liveSassCompile.settings.generateMap": false
+}

@@ -1,0 +1,40 @@
+/* Carruseles y tarjetas, también compartidas con Mi Lista. */
+.section-heading, .section-actions, .library-results-heading { display: flex; align-items: center; justify-content: space-between; gap: .75rem; }
+.section-heading { margin-bottom: 1rem; }
+.section-heading h2, .library-results-heading h2 { margin: 0; font-size: 1.35rem; font-weight: 700; }
+.section-actions a { padding: .45rem .7rem; border: 1px solid var(--borde); border-radius: .5rem; background: var(--superficie); text-decoration: none; font-size: .85rem; }
+.section-actions a:hover, .carousel-arrow:not(:disabled):hover { border-color: var(--marca); background: var(--marca); color: white; }
+.section-actions a:focus-visible, .carousel-arrow:focus-visible, .movie-list-toggle:focus-visible, .movie-menu-toggle:focus-visible { outline: 2px solid var(--marca); outline-offset: 3px; }
+.carousel-arrow { display: inline-grid; place-items: center; width: 2.25rem; height: 2.25rem; border: 1px solid var(--borde); border-radius: .5rem; background: var(--superficie); color: var(--texto); }
+.carousel-arrow:disabled { opacity: .4; }
+.movie-grid { display: flex; flex-wrap: nowrap; gap: 1rem; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .75rem; }
+.movie-grid > .col { width: 190px; flex: 0 0 190px; scroll-snap-align: start; }
+.movie-card { overflow: hidden; background: var(--superficie); border-color: var(--borde); }
+.movie-poster-wrap { position: relative; }
+.movie-poster { display: block; width: 100%; aspect-ratio: 2 / 3; object-fit: cover; }
+.movie-badge, .movie-list-toggle { position: absolute; }
+.movie-badge { top: .6rem; }
+.movie-badge { left: .6rem; padding: .25rem .45rem; border-radius: .35rem; background: #111c; color: white; font-size: .75rem; font-weight: 700; }
+.movie-badge-new { background: var(--marca); }
+.movie-list-toggle { right: .6rem; bottom: .6rem; display: grid; place-items: center; width: 2.3rem; height: 2.3rem; border: 0; border-radius: 50%; background: #111c; color: white; cursor: pointer; }
+.movie-list-toggle.is-saved { background: var(--marca); }
+.movie-list-toggle:hover, .movie-menu-toggle:hover { background: var(--marca); color: white; }
+.movie-menu-toggle { border-radius: .35rem; }
+.movie-title-row { display: flex; align-items: start; justify-content: space-between; gap: .25rem; }
+.movie-title-row h3 { margin: 0; font-size: 1rem; font-weight: 700; }
+.movie-card-copy p { margin: .5rem 0 0; color: var(--secundario); font-size: .85rem; }
+.movie-menu-toggle { border: 0; background: transparent; color: inherit; }
+.movie-actions-menu { position: fixed; z-index: 1100; min-width: 11rem; padding: .4rem; border: 1px solid var(--borde); border-radius: .5rem; background: var(--superficie); box-shadow: 0 .5rem 1rem #0003; }
+.movie-actions-menu button { display: block; width: 100%; padding: .5rem; border: 0; border-radius: .25rem; text-align: left; background: transparent; color: var(--texto); }
+.movie-actions-menu button:hover, .movie-actions-menu button:focus { background: var(--fondo); }
+
+
+/* Alinea puntuaciones aunque los títulos ocupen distintas líneas. */
+.movie-card-copy { display: flex; flex-direction: column; }
+.movie-card-copy p { margin-top: auto; padding-top: .6rem; }
+.movie-title-row h3 { overflow-wrap: anywhere; }
+.movie-menu-toggle { flex: 0 0 auto; }
+
+/* El ratón solo resalta el elemento situado debajo; el teclado conserva su foco. */
+.movie-actions-menu button:focus:not(:focus-visible):not(:hover) { background: transparent; }
+.movie-actions-menu button:focus-visible { outline: 2px solid var(--marca); outline-offset: -2px; }

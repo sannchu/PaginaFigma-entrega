@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="es" data-bs-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieApp | Mi Lista</title>
+    <link rel="stylesheet" href="./css/custom.css">
+</head>
+<body>
+    <div class="movieapp-shell library-page">
+        <header class="site-header bg-body-tertiary">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <a class="navbar-brand brand" href="index.html" aria-label="MovieApp, inicio">
+                        <span class="brand-mark" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M4 7.5h16v12H4zM4 7.5l2-4h4l-2 4m2 0 2-4h4l-2 4m2 0 2-4h4l-2 4" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" />
+                            </svg>
+                        </span>
+                        <span>MOVIEAPP</span>
+                    </a>
+
+                    <div class="header-quick-actions d-flex align-items-center gap-2">
+                        <details class="header-search">
+                            <summary aria-label="Abrir o cerrar búsqueda"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"></circle><path d="m15.5 15.5 5 5"></path></svg></summary>
+                            <form class="header-search-panel" action="index.html" method="get" role="search">
+                                <input name="buscar" type="search" aria-label="Buscar películas" placeholder="Buscar películas..." autocomplete="off">
+                                <button class="btn btn-danger" type="submit">Buscar</button>
+                            </form>
+                        </details>
+                        <button class="btn btn-outline-secondary theme-toggle" id="theme-toggle" type="button" aria-label="Cambiar al modo claro" aria-pressed="true">Modo claro</button>
+                        <button class="btn btn-danger" type="button" data-bs-toggle="modal" data-bs-target="#loginModal" aria-label="Iniciar sesión"><span class="login-label">Iniciar sesión</span><svg class="login-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="8" r="3.5"/><path d="M5 21a7 7 0 0 1 14 0"/></svg></button>
+                    </div>
+
+                    <button class="navbar-toggler menu-toggle" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavigation" aria-controls="mainNavigation" aria-expanded="false" aria-label="Abrir menú">
+                        <span class="menu-icon" aria-hidden="true"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="mainNavigation">
+                        <ul class="navbar-nav main-navigation ms-lg-auto">
+                            <li class="nav-item"><a class="nav-link" href="index.html">Explorador</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="mi-lista.html" aria-current="page">Mi lista</a></li>
+                            <li class="nav-item"><span class="nav-link disabled" aria-disabled="true">Foro</span></li>
+                            <li class="nav-item"><span class="nav-link disabled" aria-disabled="true">Comunidad</span></li>
+                            <li class="nav-item"><a class="nav-link" href="perfil.html">Perfil</a></li>
+                        </ul>
+
+
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main class="library-main container py-5">
+            <div class="library-heading d-flex align-items-center gap-3 mb-4">
+                <h1>Mi Lista</h1>
+                <span class="library-count" data-library-count>3 películas</span>
+                <span class="library-count-mobile" data-library-count-mobile aria-hidden="true">3</span>
+            </div>
+
+            <nav class="library-tabs library-tabs-desktop" aria-label="Filtrar películas guardadas">
+                <span class="is-active">Todas</span>
+                <span>Pendientes</span>
+                <span>Favoritas</span>
+            </nav>
+
+            <div class="library-mobile-controls">
+                <nav class="library-tabs library-tabs-mobile" aria-label="Filtrar películas guardadas">
+                    <span class="is-active">Todas</span>
+                    <span>Vistas</span>
+                    <span>Pendientes</span>
+                    <span>Favoritas</span>
+                </nav>
+                <div class="library-mobile-sort"><label for="library-sort-mobile">Ordenar por:</label><select id="library-sort-mobile" class="library-sort-value"><option value="recientes">Añadidas recientemente</option><option value="puntuacion">Orden de puntuación</option><option value="genero">Géneros</option><option value="fecha">Fecha de estreno</option></select></div>
+            </div>
+
+            <div class="library-layout row g-4">
+                <aside class="library-sidebar col-lg-3" aria-label="Opciones de Mi Lista">
+                    <section class="library-sidebar-section">
+                        <h2>Categorías</h2>
+                        <div class="library-category-list">
+                            <div class="is-active">Todas las guardadas</div>
+                            <div>Vistas recientemente</div>
+                            <div>Pendientes de ver</div>
+                            <div>Mis Favoritas</div>
+                        </div>
+                    </section>
+                    <div class="library-sidebar-divider"></div>
+                    <section class="library-sidebar-section">
+                        <h2><label for="library-sort-desktop">Ordenar Por</label></h2>
+                        <select id="library-sort-desktop" class="library-sort-value"><option value="recientes">Añadidas recientemente</option><option value="puntuacion">Orden de puntuación</option><option value="genero">Géneros</option><option value="fecha">Fecha de estreno</option></select>
+                    </section>
+                    <div class="library-sidebar-divider"></div>
+                    <section class="library-sidebar-section">
+                        <h2>Estadísticas</h2>
+                        <div class="library-statistics">
+                            <div><strong data-library-stat-count>3</strong><span>Guardadas</span></div>
+                            <div><strong>4.8</strong><span>Avg. Rating</span></div>
+                        </div>
+                    </section>
+                </aside>
+
+                <section class="library-results col-lg-9" aria-label="Películas guardadas">
+                    <div class="library-results-heading">
+                        <p data-library-results-count>Mostrando 3 de 3 películas</p>
+                    </div>
+
+                    <div class="library-movie-grid row g-3" data-library-movies>
+                        <div class="library-card-item col-6 col-md-4">
+                            <article class="movie-card card h-100">
+                                <img class="movie-poster" src="imagenes/spider-man-no-way-home.jpg" alt="Cartel de Spider-Man: No Way Home" loading="lazy">
+                                <div class="movie-card-copy card-body">
+                                    <h3>Spider-Man: No Way Home</h3>
+                                    <p><span class="movie-rating" role="img" aria-label="Valoración 4,8 de 5">★ 4,8</span><span aria-hidden="true"> · </span>Acción</p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="library-card-item col-6 col-md-4">
+                            <article class="movie-card card h-100">
+                                <img class="movie-poster" src="imagenes/dune-parte-dos.jpg" alt="Cartel de Dune: Parte dos" loading="lazy">
+                                <div class="movie-card-copy card-body">
+                                    <h3>Dune: Parte dos</h3>
+                                    <p><span class="movie-rating" role="img" aria-label="Valoración 4,8 de 5">★ 4,8</span><span aria-hidden="true"> · </span>Ciencia ficción</p>
+                                </div>
+                            </article>
+                        </div>
+                        <div class="library-card-item col-6 col-md-4">
+                            <article class="movie-card card h-100">
+                                <img class="movie-poster" src="imagenes/del-reves-2.jpg" alt="Cartel de Del revés 2" loading="lazy">
+                                <div class="movie-card-copy card-body">
+                                    <h3>Del revés 2</h3>
+                                    <p><span class="movie-rating" role="img" aria-label="Valoración 4,8 de 5">★ 4,8</span><span aria-hidden="true"> · </span>Animación</p>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <footer class="site-footer bg-body-tertiary mt-5 py-4" id="comunidad">
+            <div class="container footer-content d-flex flex-wrap justify-content-between gap-3">
+                <div class="footer-copy">
+                    <a class="footer-brand" href="index.html">MOVIEAPP</a>
+                    <p>Tu plataforma de exploración y organización de películas.</p>
+                </div>
+                <div class="footer-links d-flex flex-wrap gap-3">
+                    <nav id="foro" aria-label="Navegar"><strong>Navegar</strong><a href="index.html">Explorador</a><a href="mi-lista.html">Mi lista</a><a href="#foro">Foro</a><a href="#comunidad">Comunidad</a></nav>
+                    <nav aria-label="Cuenta"><strong>Cuenta</strong><a href="perfil.html">Perfil</a><a href="perfil.html#profile-settings-title">Configuración</a><a href="#comunidad">Ayuda</a></nav>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <form id="login-form" class="needs-validation" novalidate>
+                    <div class="modal-header">
+                        <div>
+                            <h2 class="modal-title fs-5" id="loginModalLabel">Iniciar sesión</h2>
+                            <p class="modal-subtitle">Accede a tu cuenta de MovieApp.</p>
+                        </div>
+                        <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label" for="login-email">Correo electrónico</label>
+                            <input class="form-control" id="login-email" name="email" type="email" autocomplete="username" required>
+                            <div class="invalid-feedback">Introduce un correo electrónico válido.</div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label" for="login-password">Contraseña</label>
+                            <input class="form-control" id="login-password" name="password" type="password" autocomplete="current-password" minlength="8" required>
+                            <div class="invalid-feedback">La contraseña debe tener al menos 8 caracteres.</div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline-secondary" type="button" data-bs-dismiss="modal">Cancelar</button>
+                        <button class="btn btn-danger" type="submit">Continuar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="movie-actions-menu" id="movie-actions-menu" role="menu" aria-label="Opciones de la película" hidden>
+        <button type="button" role="menuitem" aria-disabled="true">Añadir a mi lista</button>
+        <button type="button" role="menuitem" aria-disabled="true">Ver información</button>
+        <button type="button" role="menuitem" aria-disabled="true">Compartir</button>
+    </div>
+
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/movies.js"></script>
+</body>
+</html>

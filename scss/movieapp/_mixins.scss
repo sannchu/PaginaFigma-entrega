@@ -1,0 +1,3 @@
+@mixin hasta($ancho) {
+  @media (max-width: $ancho) { @content; }
+}
