@@ -17,7 +17,7 @@ PaginaFigma/
 │       ├── audio/             # entrada.mp3 y gota-de-agua.mp3 (mono, 64 kbps)
 │       └── video/             # motos-carrera-720p.mp4
 ├── media-bruto/               # Originales pesados sin procesar
-│   ├── img/                   # 10 JPG originales
+│   ├── img/                   # 10 JPG originales y el icono SVG original de Lucide
 │   ├── audio/                 # entrada.wav y gotadeaguawav.wav (originales)
 │   └── video/                 # motos-carrera-1080p.mp4
 ├── LICENCIAS.md               # Origen, autor y licencia de cada recurso
@@ -41,9 +41,9 @@ Abre `src/index.html` en un navegador para entrar en el explorador. Desde la nav
 ## Recursos multimedia
 
 - **Imágenes:** los JPG originales (1696 × 2528 px, unos 3 MB) están en `media-bruto/img/`. Se reescalaron a 800 px de ancho (1600 px la portada) y se exportaron a WebP con menos de 150 KB cada una.
-- **Vídeo:** el original de 1080p (13,5 MB) se reescaló a 720p con HandBrake (5,3 MB). Se usa en la portada del explorador, en silencio, con el WebP de portada como póster; se desactiva con `prefers-reduced-motion`.
-- **Audio:** el original (256 kbps, 7 s) se recortó en Audacity a unos 3,5 s y se exportó a MP3 de 128 kbps. Suena al iniciar sesión.
-- **Logotipo:** `src/media/img/logo-movieapp.svg`, usado también como favicon.
+- **Vídeo:** el original de 1080p (12,9 MB, 7,2 Mbps) se reescaló a 720p y se comprimió con vídeo H.264 a 1300 kbps y audio AAC a 128 kbps (2,5 MB, un 80 % menos). Se usa en la portada del explorador, en silencio, con el WebP de portada como póster; se desactiva con `prefers-reduced-motion`.
+- **Audio:** `entrada.mp3` parte de un WAV de 11,95 s (24 bit, estéreo, 3 MB). Se recortó a 4,5 s, se le aplicó un fade in de 0,15 s y un fade out de 1,5 s, se normalizó a −1 dB y se exportó a MP3 mono de 64 kbps (36 KB). Suena al iniciar sesión. `gota-de-agua.mp3` se convirtió del WAV original a MP3 mono de 64 kbps.
+- **Logotipo:** `src/media/img/logo-movieapp.svg`, basado en el icono `clapperboard` de Lucide (licencia ISC), con el color de marca y un título accesible. Se usa como favicon y en la barra de navegación.
 - Origen y licencias de cada recurso: [LICENCIAS.md](LICENCIAS.md).
 
 ## Compilación de Sass
