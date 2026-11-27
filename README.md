@@ -14,11 +14,11 @@ PaginaFigma/
 │   ├── js/                    # script.js, movies.js y Bootstrap
 │   └── media/                 # Recursos optimizados para la web
 │       ├── img/               # 10 WebP (< 150 KB) y logo-movieapp.svg
-│       ├── audio/             # entrada.mp3 (128 kbps)
+│       ├── audio/             # entrada.mp3 y gota-de-agua.mp3 (mono, 64 kbps)
 │       └── video/             # motos-carrera-720p.mp4
 ├── media-bruto/               # Originales pesados sin procesar
 │   ├── img/                   # 10 JPG originales
-│   ├── audio/                 # entrada-original.mp3
+│   ├── audio/                 # entrada.wav y gotadeaguawav.wav (originales)
 │   └── video/                 # motos-carrera-1080p.mp4
 ├── LICENCIAS.md               # Origen, autor y licencia de cada recurso
 ├── docs/
